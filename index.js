@@ -10,4 +10,9 @@ module.exports = function (api, options) {
     document.getElementById('${api.config.mountElementId||'root'}'),
   );`.trim()
   })
+  api.modifyEntryHistory(_=>{
+    return `
+require('../../router').history
+    `.trim()
+  })
 }
