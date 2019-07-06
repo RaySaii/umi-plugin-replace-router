@@ -1,0 +1,24 @@
+{
+  "name": "umi-plugin-replace-router",
+  "version": "0.0.1",
+  "description": "",
+  "authors": {
+    "name": "",
+    "email": ""
+  },
+  "repository": "/replace-router",
+  "peerDependencies": {
+    "umi": "2.x"
+  },
+
+  "scripts": {
+    "prepublishOnly": "np --no-cleanup --yolo --no-publish"
+  },
+  "devDependencies": {
+    "np": "^3.0.4"
+  },
+  "files": [
+    "index.js"
+  ],
+  "license": "MIT"
+}
