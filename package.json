@@ -10,7 +10,6 @@
   "peerDependencies": {
     "umi": "2.x"
   },
-
   "scripts": {
     "prepublishOnly": "np --no-cleanup --yolo --no-publish"
   },
