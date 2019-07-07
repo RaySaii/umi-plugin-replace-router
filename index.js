@@ -9,7 +9,16 @@ module.exports = function (api, options) {
     fs.writeFileSync(routerPath,
         data.replace(/import\s*renderRoutes[\s\S]*?;/, '')
             .replace(/const\s*Router[\s\S]*?;/,'')
-            .replace(/import[\s\S]*?react-router-dom['"];/,`import {renderRoutes,Router} from 'freya-router-dom'`),
+            .replace(/import[\s\S]*?react-router-dom['"];/,`import {renderRoutes,Router} from 'freya-router-dom';
+            import {Provider as KeepAliveProvider} from 'react-keep-alive';
+            `)
+            .replace(/return[\s\S]*/,`return (
+            <Router history={history}>
+                   <KeepAliveProvider>{renderRoutes(routes,props)}</KeepAliveProvider>
+             </Router>
+        )
+  }
+`),
         err => {
           api.log.error(err)
         })
