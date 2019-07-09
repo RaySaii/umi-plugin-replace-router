@@ -18,7 +18,7 @@ module.exports = function (api, options) {
 
   api.beforeDevServer(modifyRouter)
   api.onGenerateFiles(modifyRouter)
-  api.beforeBuildCompileAsync(modifyRouter)
+  api.beforeBuildCompileAsync(async () => modifyRouter())
 
   api.modifyEntryHistory(_ => {
     return `
