@@ -3,6 +3,15 @@
 const fs = require('fs')
 const path = require('path')
 module.exports = function (api, options) {
+
+  function delay(dur) {
+    return new Promise(resolve => {
+      setTimeout(_ => {
+        resolve()
+      }, dur)
+    })
+  }
+
   function modifyRouter() {
     const routerPath = path.resolve(api.paths.tmpDirPath, 'router.js')
     const data = fs.readFileSync(routerPath).toString()
@@ -16,9 +25,12 @@ module.exports = function (api, options) {
         })
   }
 
-  api.beforeDevServer(modifyRouter)
-  api.onGenerateFiles(modifyRouter)
-  api.beforeBuildCompileAsync(async () => modifyRouter())
+  if(process.env.NODE_ENV=='production'){
+    api.beforeBuildCompileAsync(modifyRouter)
+  }else {
+    api.beforeDevServer(modifyRouter)
+    api.onGenerateFiles(modifyRouter)
+  }
 
   api.modifyEntryHistory(_ => {
     return `
