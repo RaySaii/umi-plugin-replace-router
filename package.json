@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-replace-router",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "",
   "authors": {
     "name": "",
@@ -11,7 +11,6 @@
     "umi": "2.x"
   },
   "scripts": {
-    "prepublishOnly": "np --no-cleanup --yolo --no-publish",
     "deploy": "node ./scripts/update-version.js"
   },
   "devDependencies": {
