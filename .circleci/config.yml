@@ -14,19 +14,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - dependencies-
       - run:
-          name: Install
-          command: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: dependencies-{{ checksum "package.json" }}
-#      - run:
-#          name: Test
-#          command: npm run test
-      - run:
-          name: Build
-          command: npm run build
-      - run:
           name: Auth
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
