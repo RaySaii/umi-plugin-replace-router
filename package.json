@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-replace-router",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "authors": {
     "name": "",
@@ -11,7 +11,8 @@
     "umi": "2.x"
   },
   "scripts": {
-    "prepublishOnly": "np --no-cleanup --yolo --no-publish"
+    "prepublishOnly": "np --no-cleanup --yolo --no-publish",
+    "deploy": "node ./scripts/update-version.js"
   },
   "devDependencies": {
     "np": "^3.0.4"
@@ -19,5 +20,8 @@
   "files": [
     "index.js"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  }
 }
